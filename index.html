@@ -1,77 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SM Fast Food Catering Services</title>
+<title>SM Fast Food | Premium Veg & Non-Veg Catering Services</title>
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial,sans-serif;
-background:#f8f8f8;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f8f8f8;
+color:#333;
+}
+
+/* HEADER */
+
 header{
-background:#b30000;
+background:linear-gradient(135deg,#8B0000,#d62828);
 color:white;
-padding:40px;
+padding:60px 20px;
 text-align:center;
 }
 
 header img{
 width:140px;
-border-radius:50%;
+height:140px;
+object-fit:contain;
 background:white;
 padding:10px;
+border-radius:50%;
+margin-bottom:15px;
 }
 
+header h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+header p{
+font-size:1.1rem;
+}
+
+/* HERO */
+
 .hero{
-padding:40px;
-text-align:center;
 background:white;
+padding:60px 20px;
+text-align:center;
 }
 
 .hero h2{
-color:#b30000;
+font-size:2rem;
+margin-bottom:20px;
+color:#8B0000;
 }
+
+.hero p{
+max-width:800px;
+margin:auto;
+line-height:1.7;
+}
+
+/* BUTTONS */
 
 .btn{
 display:inline-block;
-padding:12px 25px;
+margin-top:20px;
+padding:14px 28px;
 background:#25D366;
 color:white;
 text-decoration:none;
-border-radius:5px;
-margin-top:10px;
+border-radius:6px;
+font-weight:bold;
+transition:.3s;
 }
 
+.btn:hover{
+transform:translateY(-3px);
+}
+
+/* SECTIONS */
+
 .section{
-padding:40px 20px;
+padding:60px 20px;
 max-width:1200px;
 margin:auto;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
 }
+
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.section h2{
+text-align:center;
+margin-bottom:30px;
+color:#8B0000;
+}
+
+/* SERVICES */
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.service-card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:.3s;
+text-align:center;
+}
+
+.service-card:hover{
+transform:translateY(-8px);
+}
+
+/* GALLERY */
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:15px;
 }
 
 .gallery img{
 width:100%;
-height:250px;
+height:260px;
 object-fit:cover;
 border-radius:10px;
+transition:.4s;
 }
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+.highlight{
+grid-column:span 2;
+height:420px !important;
+border:5px solid #8B0000;
+}
+
+/* LOCATION */
+
+.location{
+text-align:center;
+line-height:1.8;
+}
+
+/* FOOTER */
 
 footer{
 background:#222;
 color:white;
 text-align:center;
-padding:25px;
+padding:30px;
+margin-top:40px;
+}
+
+/* FLOATING WHATSAPP */
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+width:60px;
+height:60px;
+background:#25D366;
+color:white;
+font-size:28px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 4px 15px rgba(0,0,0,.3);
+z-index:999;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header h1{
+font-size:2rem;
+}
+
+.highlight{
+grid-column:span 1;
+height:260px !important;
+}
+
 }
 
 </style>
@@ -87,20 +224,21 @@ padding:25px;
 
 <p>Premium Veg & Non-Veg Catering Services</p>
 
-<p>📞 9342196070</p>
+<p>📞 Phone & WhatsApp: 9342196070</p>
 
 </header>
 
 <section class="hero">
 
-<h2>Catering for Every Occasion</h2>
+<h2>Catering For Every Occasion</h2>
 
 <p>
 Government Events • Corporate Functions • Weddings • Receptions • Birthday Parties • Housewarming • Family Gatherings
 </p>
 
 <a class="btn"
-href="https://wa.me/919342196070?text=Hello%20SM%20Fast%20Food,%20I%20am%20looking%20for%20catering%20services.%20Event%20Type:%20___%20Date:%20___%20Guests:%20___%20Please%20share%20details."
+href="https://wa.me/919342196070?text=Hello%20SM%20Fast%20Food,%20I%20am%20looking%20for%20catering%20services.%20Event%20Type:%20_____%20Date:%20_____%20Guests:%20_____%20Please%20share%20details."
+target="_blank">
 Book Catering on WhatsApp
 </a>
 
@@ -110,12 +248,8 @@ Book Catering on WhatsApp
 
 <h2>About Us</h2>
 
-<p>
-SM Fast Food is a trusted catering service based in Bengaluru.
-We undertake all types of Veg and Non-Veg catering events with quality food,
-professional service and timely delivery.
-From small family functions to large government and corporate gatherings,
-we make every event memorable.
+<p style="text-align:center; line-height:1.8;">
+SM Fast Food is a trusted Bengaluru-based catering service providing premium Veg and Non-Veg catering for weddings, receptions, corporate events, government functions, birthday celebrations, housewarming ceremonies and family gatherings. We focus on quality food, professional service and customer satisfaction.
 </p>
 
 </section>
@@ -124,15 +258,33 @@ we make every event memorable.
 
 <h2>Our Services</h2>
 
-<ul>
-<li>Wedding Catering</li>
-<li>Reception Catering</li>
-<li>Corporate Events</li>
-<li>Government Functions</li>
-<li>Birthday Parties</li>
-<li>Housewarming Events</li>
-<li>Veg & Non-Veg Menu</li>
-</ul>
+<div class="services">
+
+<div class="service-card">
+<h3>💍 Wedding Catering</h3>
+</div>
+
+<div class="service-card">
+<h3>🏢 Corporate Events</h3>
+</div>
+
+<div class="service-card">
+<h3>🎉 Birthday Parties</h3>
+</div>
+
+<div class="service-card">
+<h3>🏠 Housewarming Events</h3>
+</div>
+
+<div class="service-card">
+<h3>🏛 Government Functions</h3>
+</div>
+
+<div class="service-card">
+<h3>🍽 Veg & Non-Veg Catering</h3>
+</div>
+
+</div>
 
 </section>
 
@@ -142,57 +294,86 @@ we make every event memorable.
 
 <div class="gallery">
 
-<img src="images/catering1.jpg">
-<img src="images/catering2.jpg">
-<img src="images/catering3.jpg">
-<img src="images/catering4.jpg">
-<img src="images/carving.jpg">
+<img src="images/catering1.jpg" alt="">
+<img src="images/catering2.jpg" alt="">
+
+<img src="images/carving.jpg" class="highlight" alt="Food Carving">
+
+<img src="images/catering3.jpg" alt="">
+<img src="images/catering4.jpg" alt="">
 
 </div>
 
 </section>
 
-<section class="section">
+<section class="section" style="text-align:center;">
 
-<h2>Veg Menu</h2>
+<h2>Our Catering Menu</h2>
 
-<p>
-Download our complete Veg Catering Menu.
-</p>
+<p>Download our complete Veg Catering Menu PDF.</p>
 
 <a class="btn"
-href="S%20M%20Fast%20Food%20Veg%20Food%20Menu.pdf"
+href="S%20M%20Fast%20Food%20Veg_Food_Menu.pdf"
 target="_blank">
-View Menu PDF
+📄 View Menu PDF
 </a>
 
 </section>
 
-<section class="section">
+<section class="section location">
 
-<h2>Location</h2>
+<h2>Visit Us</h2>
 
 <p>
-Gundappa Road, 2nd Cross, Manjunatha Layout,
-Nagashettyhalli, Bengaluru - 560094
+Gundappa Road, 2nd Cross,<br>
+Manjunatha Layout,<br>
+Nagashettyhalli,<br>
+Bengaluru – 560094
 </p>
 
 <a class="btn"
-href="https://www.google.com/maps/place/S+M+Fast+Food/@13.0429972,77.5735231">
-Open Google Maps
+href="https://www.google.com/maps/place/S+M+Fast+Food/@13.0429972,77.5735231,17z"
+target="_blank">
+📍 Open Google Maps
 </a>
 
 </section>
 
 <footer>
 
-<h3>SM Fast Food Catering Services</h3>
+<h3>SM Fast Food</h3>
+
+<p>Premium Veg & Non-Veg Catering Services</p>
 
 <p>Phone & WhatsApp: 9342196070</p>
 
-<p>Bengaluru, Karnataka, India</p>
+<p>Bengaluru, Karnataka</p>
 
 </footer>
+
+<a class="whatsapp"
+href="https://wa.me/919342196070?text=Hello%20SM%20Fast%20Food,%20I%20am%20looking%20for%20catering%20services.%20Please%20share%20details."
+target="_blank">
+💬
+</a>
+
+<script>
+
+const sections=document.querySelectorAll('.section');
+
+window.addEventListener('scroll',()=>{
+sections.forEach(section=>{
+const top=section.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+section.classList.add('show');
+}
+});
+});
+
+window.dispatchEvent(new Event('scroll'));
+
+</script>
 
 </body>
 </html>
